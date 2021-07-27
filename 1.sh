@@ -2,3 +2,4 @@
 
 echo "test run"
 
+exit 1
