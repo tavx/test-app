@@ -24,7 +24,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Test html output"
-                if [ -f *.html ]; then
+                if [ `ls *.html` ]; then
 	                echo "HTML Tests passed"
 	                exit 0 
                 else
@@ -32,6 +32,14 @@ pipeline {
                 fi
                 '''
             }
+        }
+        stage('Deploy') {
+            steps {
+                sshagent(credentials : ['tomikiaikido.ru']) {
+                    sh ‘scp -r *.html jenkins@$DEPLOY_SERVER:$DEPLOY_HOME/’
+                }
+            }
+
         }
     }
     post {
