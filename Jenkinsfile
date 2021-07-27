@@ -24,9 +24,9 @@ pipeline {
             steps {
                 sh '''
                 echo "Test html output"
-                if [ `ls *.html` ]; then
+                ls *.html &> /dev/null
+                if [ $? -eq 0 ]; then
 	                echo "HTML Tests passed"
-	                exit 0 
                 else
 	                exit 1
                 fi
@@ -48,7 +48,6 @@ pipeline {
                     '''
                 }
             }
-
         }
     }
     post {
