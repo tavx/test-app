@@ -1,22 +1,36 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
+                echo "Running apps"
+                sh 'bash *.sh'
+            }
+        }
+        stage('Test #1') {
+            steps {
+                sh '''
                 echo "Test bash script output"
                 if [ -f test-variable ]; then
 	                echo "Tests passed"
-                    rm test-variable
 	                exit 0 
                 else
 	                exit 1
                 fi
+                '''
             }
         }
-        stage('Build') {
+        stage('Test #2') {
             steps {
-                echo "Running apps"`
-                bash *.sh
+                sh '''
+                echo "Test html output"
+                if [ -f *.html ]; then
+	                echo "HTML Tests passed"
+	                exit 0 
+                else
+	                exit 1
+                fi
+                '''
             }
         }
     }
