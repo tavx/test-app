@@ -2,4 +2,6 @@
 
 echo "test run"
 
-exit 1
+echo $ENV
+
+#exit 1
