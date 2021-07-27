@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent(credentials : ['tomikiaikido.ru']) {
-                    sh ‘scp -r *.html jenkins@$DEPLOY_SERVER:$DEPLOY_HOME/’
+                    sh "scp -r *.html jenkins@$DEPLOY_SERVER:$DEPLOY_HOME/"
                 }
             }
 
