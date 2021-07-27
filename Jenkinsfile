@@ -3,16 +3,20 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'echo "Fail!"; exit 1'
+                echo "Test bash script output"
+                if [ -f test-variable ]; then
+	                echo "Tests passed"
+                    rm test-variable
+	                exit 0 
+                else
+	                exit 1
+                fi
             }
         }
         stage('Build') {
             steps {
-                sh 'echo "Hello World"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                echo "Running apps"
+                bash *.sh
             }
         }
     }
@@ -21,17 +25,16 @@ pipeline {
             echo 'This will always run'
         }
         success {
-            echo 'This will run only if successful'
+            echo 'Build and test successful'
         }
         failure {
-            echo 'This will run only if failed'
+            echo 'Build failed!'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            echo 'Build not deployed'
         }
         changed {
-            echo 'This will run only if the state of the Pipeline has changed'
-            echo 'For example, if the Pipeline was previously failing but is now successful'
+            echo "Changed"
         }
     }
 }
