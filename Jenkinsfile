@@ -39,7 +39,7 @@ pipeline {
                     sh '''
                     [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                     ssh-keyscan -p $DEPLOY_PORT -t rsa,dsa $DEPLOY_SERVER >> ~/.ssh/known_hosts
-                    scp -P $DEPLOY_PORT -r *.html $DEPLOY_USER@$DEPLOY_SERVER:$DEPLOY_HOME/"
+                    scp -P $DEPLOY_PORT -r *.html $DEPLOY_USER@$DEPLOY_SERVER:$DEPLOY_HOME/
                     '''
                 }
             }
