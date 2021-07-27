@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo "Running apps"
+                echo "Running apps"`
                 bash *.sh
             }
         }
