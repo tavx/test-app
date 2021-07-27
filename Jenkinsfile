@@ -42,6 +42,11 @@ pipeline {
                     scp -P $DEPLOY_PORT -r *.html $DEPLOY_USER@$DEPLOY_SERVER:$DEPLOY_HOME/
                     '''
                 }
+                sshagent(credentials: ['323']) {
+                    sh '''
+                        echo 123
+                    '''
+                }
             }
 
         }
