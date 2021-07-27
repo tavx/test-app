@@ -7,9 +7,9 @@ echo "print all env variables"
 cat << EOF > index.html
 <html>
 <h1>Hello from simple Jenkins job</h2>
-<code>
+<pre>
 $(printenv)
-</code>
+</pre>
 </html>
 EOF
 
