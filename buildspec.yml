@@ -8,8 +8,9 @@ phases:
       - echo This always runs even if the login command fails
   build:
     commands:
-      - echo "Running apps"
-      - bash *.sh
+      - echo "Building apps"
+      - ./main.sh
+      - echo "Done"
     finally:
       - echo This always runs even if the install command fails
   post_build:
@@ -19,5 +20,5 @@ phases:
 
 artifacts:
   files:
-    - index.html
+    - /release/*
   discard-paths: yes

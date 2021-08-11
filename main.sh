@@ -3,7 +3,6 @@
 #URL=${GIT_URL#"git@"}
 #URL=${URL/://}
 #URL=${URL%".git"}
-
 echo "print all env variables"
 cat << EOF > index.html
 <html>
