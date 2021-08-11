@@ -15,7 +15,7 @@ $(printenv)
 EOF
 
 mkdir target
-tar -cf - index.html | gzip > target/output.tar.gz
+tar -cf - index.html appspec.yml | gzip > target/output.tar.gz
 echo "remove all html files"
 rm -rf ./*.html
 
