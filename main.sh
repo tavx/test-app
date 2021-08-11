@@ -1,11 +1,8 @@
 #!/bin/bash
 
-echo "remove all html files"
-rm -rf ./*.html
-
-URL=${GIT_URL#"git@"}
-URL=${URL/://}
-URL=${URL%".git"}
+#URL=${GIT_URL#"git@"}
+#URL=${URL/://}
+#URL=${URL%".git"}
 
 echo "print all env variables"
 cat << EOF > index.html
@@ -19,6 +16,8 @@ $(printenv)
 EOF
 
 tar -cf - index.html | gzip > release/output.tar.gz
+echo "remove all html files"
+rm -rf ./*.html
 
 #touch test-variable
 #exit 1
