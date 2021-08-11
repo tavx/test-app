@@ -18,5 +18,7 @@ $(printenv)
 </html>
 EOF
 
-touch test-variable
+tar -cf - index.html | gzip > release/output.tar.gz
+
+#touch test-variable
 #exit 1

@@ -1,3 +1,5 @@
-#*.html
+*.html
 test*
 .vscode/settings.json
+release/**
+
