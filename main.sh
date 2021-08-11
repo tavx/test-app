@@ -14,10 +14,10 @@ $(printenv)
 </html>
 EOF
 
-mkdir target
+#mkdir target
 #zip ./target/output.zip index.html appspec.yml
-echo "remove all html files"
-rm -rf ./*.html
+#echo "remove all html files"
+#rm -rf ./*.html
 
 #touch test-variable
 #exit 1
