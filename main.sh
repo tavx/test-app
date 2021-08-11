@@ -14,8 +14,8 @@ $(printenv)
 </html>
 EOF
 
-mkdir release
-tar -cf - index.html | gzip > release/output.tar.gz
+mkdir target
+tar -cf - index.html | gzip > target/output.tar.gz
 echo "remove all html files"
 rm -rf ./*.html
 
