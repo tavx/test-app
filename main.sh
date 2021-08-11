@@ -15,7 +15,7 @@ $(printenv)
 EOF
 
 mkdir target
-zip ./target/output.zip index.html appspec.yml
+#zip ./target/output.zip index.html appspec.yml
 echo "remove all html files"
 rm -rf ./*.html
 
