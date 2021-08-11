@@ -20,5 +20,6 @@ phases:
 
 artifacts:
   files:
-    - target/output.tar.gz
+    - index.html
+    - appspec.yml
   discard-paths: yes
