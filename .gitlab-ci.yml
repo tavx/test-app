@@ -1,0 +1,14 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+
+build: 
+  stage: build
+  script:
+    - env
+    - | 
+      if [ -n ${TRIGGER_PAYLOAD} ]; then 
+        cat ${TRIGGER_PAYLOAD}
+      fi
