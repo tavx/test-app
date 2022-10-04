@@ -1,7 +1,4 @@
-stages:
-  - build
-
-build: 
-  stage: build
-  script:
-    - echo "HELLO WORLD!"
+include:
+  - project: 'dlysenko/ptsecurityjs-ci'
+    ref: main
+    file: '.gitlab-ci.yml'
